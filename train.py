@@ -61,7 +61,7 @@ def test(loader):
         errorexp += ((model(data) - a*data.y_exp)/b).abs().sum().item()
         # MAE 和计算值求误差
         errorcomp += ((model(data) - data.y)/b).abs().sum().item()
-    return errorexp / len(test_dataset), errorcomp / len(test_dataset)
+    return errorexp / len(loader.dataset), errorcomp / len(loader.dataset)
 
 
 best_val_error = None
